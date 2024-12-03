@@ -1,45 +1,48 @@
 # ToFixed Attribute Macro for Rust
 
-Bu proje, sabit nokta (fixed-point) sayıları dönüştürmek için bir Rust procedural macro (`to_fixed`) sağlar. Bu makro, belirli bir sabit diziyi alır ve her elemanı, sabit nokta biçimine dönüştürerek `fixed::types` kütüphanesinin türlerini kullanarak sabitlere dönüştürür.
+This project provides a Rust procedural macro (`to_fixed`) to convert fixed-point numbers. The macro takes a specific constant array and converts each element into a fixed-point representation using types from the `fixed::types` crate.
 
-## Özellikler
+## Features
 
-- `U{int_bits}F{frac_bits}` gibi sabit nokta türleriyle çalışır.
-- Sabit bir diziye uygulandığında, dizideki her eleman sabit nokta türüne dönüştürülür.
-- Şu anda yalnızca `f32` türündeki değerlerle çalışmaktadır.
-  
-## Kurulum
+- Works with fixed-point types like `U{int_bits}F{frac_bits}`.
+- When applied to a constant array, each element is converted to a fixed-point type.
+- Currently works only with `f32` values.
 
-## Kullanım
+## Installation
+
+## Usage
 ```rust
 use fixed::types::U2F14;
 
 #[to_fixed]
 const SIN_TABLE: [U2F14; 256] = [
-    0.0, 0.1, 0.2, 0.3, // ... devamı
+    0.0, 0.1, 0.2, 0.3, // ... continue
 ];
 
 fn main() {
     println!("{:?}", SIN_TABLE);
 }
 ```
-## Katkı Sağlamak
 
-Projeye katkı sağlamak isteyen herkes memnuniyetle kabul edilmektedir. Eğer eksik veya geliştirilmesi gereken bir şey olduğunu düşünüyorsanız, bir pull request göndererek veya issue açarak katkı sağlayabilirsiniz.
+## Contributing
 
-### Katkı Kuralları
+Contributions to the project are welcome. If you think something is missing or needs improvement, feel free to contribute by submitting a pull request or opening an issue.
 
-- Bu projede yapılan değişiklikler, proje kodunu daha stabil ve kullanışlı hale getirmeyi amaçlamalıdır.
-- Yeni özellikler veya düzeltmeler için, mümkünse testler eklemeyi unutmayın.
-- PR göndermeden önce lütfen açık bir şekilde neyi değiştirdiğinizi ve neden değiştirdiğinizi açıklayan bir açıklama ekleyin.
+### Contribution Guidelines
 
-### Gelecek Planları
+- Changes should aim to make the project more stable and useful.
+- Please consider adding tests for new features or fixes.
+- Before submitting a pull request, ensure that you provide a clear description of what has been changed and why.
 
-Projenin zamanla eksiklerinin giderilmesi ve yeni özelliklerin eklenmesi beklenmektedir. Bu özellikler şunları içerebilir:
-- Diğer sabit nokta türlerinin desteklenmesi.
-- Performans iyileştirmeleri.
-- Daha fazla test ve hata ayıklama.
+### Future Plans
 
-### Lisans
+The project is expected to evolve over time with more features and improvements. These may include:
 
-Bu proje MIT Lisansı altında lisanslanmıştır. Daha fazla bilgi için LICENSE dosyasını inceleyebilirsiniz.
+- Support for additional fixed-point types.
+- Performance enhancements.
+- More tests and debugging.
+
+### License
+
+This project is licensed under the MIT License. For more information, please refer to the LICENSE file.
+
